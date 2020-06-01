@@ -1,7 +1,5 @@
 import API from "goals-todos-api";
-import {receiveData} from '../utils/helpers';
-
-export const RECEIVE_DATA = 'RECEIVE_DATA';
+import {RECEIVE_DATA} from "../utils/actionTypes";
 
 export function handleInitialDate() {
     return (dispatch) => {
@@ -10,7 +8,11 @@ export function handleInitialDate() {
             API.fetchGoals(),
         ])
             .then(([todos, goals]) => {
-                dispatch(receiveData(todos, goals));
+                dispatch({
+                    type: RECEIVE_DATA,
+                    todos,
+                    goals,
+                });
             });
     }
 }

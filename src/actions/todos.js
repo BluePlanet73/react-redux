@@ -1,17 +1,18 @@
 import API from 'goals-todos-api'
-import {toggleTodo, removeTodo, addTodo} from '../utils/helpers'
-
-export const ADD_TODO = 'ADD_TODO';
-export const REMOVE_TODO = 'REMOVE_TODO';
-export const TOGGLE_TODO = 'TOGGLE_TODO';
-
+import {ADD_TODO, REMOVE_TODO, TOGGLE_TODO} from "../utils/actionTypes";
 
 export function handleToggleTodo(item) {
     return (dispatch) => {
-        dispatch(toggleTodo(item.id));
+        dispatch({
+            type: TOGGLE_TODO,
+            id: item.id
+        });
         API.saveTodoToggle(item.id)
             .catch(() => {
-                dispatch(toggleTodo(item.id));
+                dispatch({
+                    type: TOGGLE_TODO,
+                    id: item.id
+                });
                 alert('操作失败！');
             })
     }
@@ -19,10 +20,16 @@ export function handleToggleTodo(item) {
 
 export function handleRemoveTodo(item) {
     return (dispatch) => {
-        dispatch(removeTodo(item.id));
+        dispatch({
+            type: REMOVE_TODO,
+            id: item.id,
+        });
         API.deleteTodo(item.id)
             .catch(() => {
-                dispatch(addTodo(item));
+                dispatch({
+                    type: ADD_TODO,
+                    todo: item
+                });
                 alert('删除失败！');
             })
     }
@@ -30,10 +37,16 @@ export function handleRemoveTodo(item) {
 
 export function handleAddTodo(item) {
     return (dispatch) => {
-        dispatch(addTodo(item));
+        dispatch({
+            type: ADD_TODO,
+            todo: item
+        });
         API.saveTodo(item)
             .catch(() => {
-                dispatch(removeTodo(item.id));
+                dispatch({
+                    type: REMOVE_TODO,
+                    id: item.id,
+                });
                 alert('添加失败！');
             })
     }

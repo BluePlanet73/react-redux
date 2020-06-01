@@ -1,15 +1,18 @@
-import API from 'goals-todos-api'
-import {removeGoal, addGoal} from '../utils/helpers'
-
-export const ADD_GOAL = 'ADD_GOAL';
-export const REMOVE_GOAL = 'REMOVE_GOAL';
+import API from 'goals-todos-api';
+import {ADD_GOAL, REMOVE_GOAL} from "../utils/actionTypes";
 
 export function handleRemoveGoalAction(item) {
     return (dispatch) => {
-        dispatch(removeGoal(item.id));
+        dispatch({
+            type: REMOVE_GOAL,
+            id: item.id
+        });
         API.deleteGoal(item.id)
             .catch(() => {
-                dispatch(addGoal(item));
+                dispatch({
+                    type: ADD_GOAL,
+                    item
+                });
                 alert('删除失败！');
             })
     }
@@ -17,10 +20,16 @@ export function handleRemoveGoalAction(item) {
 
 export function handleAddGoal(item) {
     return (dispatch) => {
-        dispatch(addGoal(item));
+        dispatch({
+            type: ADD_GOAL,
+            item
+        });
         API.saveGoal(item)
             .catch(() => {
-                dispatch(removeGoal(item.id));
+                dispatch({
+                    type: REMOVE_GOAL,
+                    id: item.id
+                });
                 alert('添加失败！');
             })
     }
