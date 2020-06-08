@@ -1,6 +1,20 @@
 import API from 'goals-todos-api'
 import {ADD_TODO, REMOVE_TODO, TOGGLE_TODO} from "../utils/actionTypes";
 
+const store = {
+    form: [
+        {
+            id: "attr1",
+            min: 1,
+            max: 1
+        }, {
+            id: "attr2",
+            min: 1,
+            max: 1
+        }
+    ]
+}
+
 export function handleToggleTodo(item) {
     return (dispatch) => {
         dispatch({

@@ -1,5 +1,15 @@
 import API from 'goals-todos-api';
-import {ADD_GOAL, REMOVE_GOAL} from "../utils/actionTypes";
+import {ADD_GOAL, CHANGE_FORM, REMOVE_GOAL} from "../utils/actionTypes";
+
+export function changeForm(form) {
+    console.log(form);
+    return dispatch => {
+        dispatch({
+            type: CHANGE_FORM,
+            form
+        });
+    }
+}
 
 export function handleRemoveGoalAction(item) {
     return (dispatch) => {
