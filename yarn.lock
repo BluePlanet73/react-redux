@@ -5908,6 +5908,14 @@ kefir.atom@^5.5.1, kefir.atom@^5.5.2:
     infestines "^0.4.10"
     partial.lenses ">=2.2.0"
 
+kefir.ramda@^0.26.0:
+  version "0.26.0"
+  resolved "https://registry.yarnpkg.com/kefir.ramda/-/kefir.ramda-0.26.0.tgz#43496a2410e70bdf6844a4068b061e6a8bf8cb6a"
+  integrity sha512-J3gSk1HL3K9Za38rXgeHMl0RvBkXm0iBHlMzTP7Zy4Pbu2cZw/T9WiA7gd7fUSnFG9+X19oRtqWdDdhGc9crUA==
+  dependencies:
+    karet.lift "^2.1.0"
+    ramda "^0.26.0"
+
 kefir@^3.8.7:
   version "3.8.7"
   resolved "https://registry.yarnpkg.com/kefir/-/kefir-3.8.7.tgz#8fa8ffa3620c6c3713838c33d92af4d976ccfce8"
@@ -8103,6 +8111,11 @@ raf@3.4.1:
   integrity sha1-B0LpmkplUvRF1z4+4DKK8P8e3jk=
   dependencies:
     performance-now "^2.1.0"
+
+ramda@^0.26.0:
+  version "0.26.1"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.26.1.tgz#8d41351eb8111c55353617fc3bbffad8e4d35d06"
+  integrity sha512-hLWjpy7EnsDBb0p+Z3B7rPi3GDeRG5ZtiI33kJhTt+ORCd38AbAIjB/9zRIUoeTbE/AVX5ZkU7m6bznsvrf8eQ==
 
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5:
   version "2.1.0"
